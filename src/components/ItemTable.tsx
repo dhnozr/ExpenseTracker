@@ -25,9 +25,9 @@ export const ItemTable = ({ shop, handleDeleteItem }: Props) => {
 
   // const categoryFilters = shopItems.filter(item => item.category === category);
 
-  const showItems = shopItems.filter(item => {
-    return category === 'All Categories' || item.category === category;
-  });
+  const showItems = category === 'All Categories' ? shopItems : shopItems.filter(item => item.category === category);
+
+  console.log(showItems);
 
   useEffect(() => {
     const calc = showItems.reduce((acc, curr) => acc + curr.amount, 0);
@@ -43,6 +43,8 @@ export const ItemTable = ({ shop, handleDeleteItem }: Props) => {
   };
 
   const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    console.log('changincg category to', event.currentTarget.value);
+
     setCategory(event.currentTarget.value);
   };
 
@@ -51,7 +53,7 @@ export const ItemTable = ({ shop, handleDeleteItem }: Props) => {
       <div className='container'>
         <div className='mb-3'>
           <select name='select' className='form-select' onChange={handleOnChange}>
-            <option defaultValue={'All categories'}>All categories</option>
+            <option defaultValue={'All Categories'}>All Categories</option>
             <option value='Groceries'>Groceries</option>
             <option value='Utilities'>Utilities</option>
             <option value='Entertainment'>Entertainment</option>
