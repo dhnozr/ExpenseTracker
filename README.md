@@ -2,7 +2,7 @@
 
 This project is a React-based web application designed for managing and tracking personal expenses. It provides a simple yet powerful interface for users to input, view, and manage their expenses in various categories.
 
-![gif](/expense.gif)
+![gif](/public/expense.gif)
 
 ## Features
 
